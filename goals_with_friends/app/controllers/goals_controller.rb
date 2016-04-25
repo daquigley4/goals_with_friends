@@ -1,10 +1,10 @@
 class GoalsController < ApplicationController
-  before_action :set_goal, only: [:show, :edit, :update, :destroy]
+  before_action :set_goal, only: [:show, :edit, :update, :destroy, :toggle_completed]
 
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    @goals = Goal.order(created_at: :desc)
   end
 
   # GET /goals/1
@@ -28,7 +28,7 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
+        format.html { redirect_to goals_path, notice: 'Goal was successfully created.' }
         format.json { render :show, status: :created, location: @goal }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class GoalsController < ApplicationController
   def update
     respond_to do |format|
       if @goal.update(goal_params)
-        format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
+        format.html { redirect_to goals_path, notice: 'Goal was successfully updated.' }
         format.json { render :show, status: :ok, location: @goal }
       else
         format.html { render :edit }
@@ -56,8 +56,20 @@ class GoalsController < ApplicationController
   def destroy
     @goal.destroy
     respond_to do |format|
-      format.html { redirect_to goals_url, notice: 'Goal was successfully destroyed.' }
+      format.html { redirect_to goals_path, notice: 'Goal was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def toggle_completed
+    @goal.completed = !@goal.completed
+    respond_to do |format|
+      if @goal.save
+        format.html { redirect_to goals_path }
+        format.json { render :show, status: :ok, location: @goal }
+      else
+        # show some error message
+      end
     end
   end
 

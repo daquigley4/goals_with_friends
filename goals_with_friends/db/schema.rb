@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160425212842) do
     t.boolean  "completed",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "owner"
+    t.string   "owner",      null: false
   end
 
 end

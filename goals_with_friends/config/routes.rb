@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root to: 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
+
   resources :goals
+  match 'goals/:id/toggle_completed', to: 'goals#toggle_completed', via: 'get'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

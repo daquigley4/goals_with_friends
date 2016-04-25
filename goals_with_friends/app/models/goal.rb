@@ -1,5 +1,5 @@
 class Goal < ActiveRecord::Base
-  validates :title, :due_date presence: true
+  validates :title, :owner, :due_date presence: true
 
   before_save :default_values
 

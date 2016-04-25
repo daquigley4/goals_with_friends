@@ -12,6 +12,7 @@
       <tr>
             <th>Completed</th>
             <th>Title</th>
+            <th>Owner</th>
             <th>Due date</th>
             <th>Show</th>
             <th>Edit</th>
@@ -25,8 +26,18 @@
     <tbody>
       <%= content_tag_for(:tr, @goals) do |goal| %>
             <td><%= goal.title %></td>
+            <td><%= goal.owner %></td>
             <td><%= goal.due_date %></td>
-            <td><%= goal.completed %></td>
+            <!-- <td><%= goal.completed %></td> -->
+            <td>
+              <%= link_to("/goals/#{goal.id}/toggle_completed") do %>
+              <% if goal.completed %>
+                <span class="glyphicon glyphicon-ok"></span>
+              <% else %>
+                <span class="glyphicon glyphicon-unchecked"></span>
+              <% end %>
+            <% end %>
+        </td>
             <td><%= link_to 'Show', goal %></td>
         <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
         <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
