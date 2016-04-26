@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
-  before_action :set_goal, only: [:show, :edit, :update, :destroy, :toggle_completed]
   before_action :signed_in_user
+  before_action :set_goal, only: [:toggle_completed, :show, :edit, :update, :destroy]
+  before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /goals
   # GET /goals.json
@@ -84,5 +85,10 @@ class GoalsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
       params.require(:goal).permit(:title, :due_date, :completed)
+    end
+
+    def verify_correct_user
+       @goal = current_user.goals.find_by(id: params[:id])
+       redirect_to root_url, notice: 'Access Denied!' if @goal.nil?
     end
 end

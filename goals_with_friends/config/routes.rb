@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :sessions, only:[:new, :create, :destroy]
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   resources :goals
   match 'goals/:id/toggle_completed', to: 'goals#toggle_completed', via: 'get'
 
+  resources :tasks
+  match 'tasks/:id/toggle_completed', to: 'tasks#toggle_completed', via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
