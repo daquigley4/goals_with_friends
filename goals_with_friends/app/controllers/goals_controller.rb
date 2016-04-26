@@ -1,10 +1,11 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy, :toggle_completed]
+  before_action :signed_in_user
 
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.order(created_at: :desc)
+    @goals = current_user.goals.order(created_at: :desc)
   end
 
   # GET /goals/1
@@ -25,6 +26,7 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(goal_params)
+    @goal.user = current_user   # associate the new goal to the current_user
 
     respond_to do |format|
       if @goal.save
