@@ -63,7 +63,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to goals_path, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to user_goal_path(current_user, @task.goal), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -80,6 +80,21 @@ class TasksController < ApplicationController
     end
   end
 
+  def toggle_completed_task
+    # @goal = Goal.find(params[:id])
+    @goal = Goal.find(params[:goal_id])
+    @task = Task.find(params[:id])
+    @task.completed = !@task.completed
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to user_goal_path(current_user, @task.goal) }
+        format.json { render :show, status: :ok, location: @task }
+      else
+      # show some error message
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -88,7 +103,7 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description)
+      params.require(:task).permit(:title, :description, :completed)
     end
 
     def verify_correct_user

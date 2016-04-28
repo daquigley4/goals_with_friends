@@ -7,7 +7,7 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show goal</h1>
+  <h1>Show Goal</h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -48,9 +48,10 @@
 
     <tbody>
     <!--@goal.tasks.each-->
-      <%= content_tag_for(:tr, @task) do |task| %>
+
+      <%= content_tag_for(:tr, @goal.tasks.each) do |task| %>
             <td>
-              <%= link_to("/tasks/#{task.id}/toggle_completed_task") do %>
+              <%= link_to ("/goals/#{@goal.id}/tasks/#{task.id}/toggle_completed_task") do %>
                 <% if task.completed %>
                   <span class="glyphicon glyphicon-ok"></span>
                 <% else %>

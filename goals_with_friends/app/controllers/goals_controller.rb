@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :signed_in_user
-  before_action :set_goal, only: [:toggle_completed, :show, :edit, :update, :destroy]
+  before_action :set_goal, only: [:toggle_completed, :toggle_completed_task, :show, :edit, :update, :destroy]
   before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /goals
@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
   # GET /goals/1.json
   def show
     @goal = Goal.find(params[:id])
+
   end
 
   # GET /goals/new
@@ -69,7 +70,7 @@ class GoalsController < ApplicationController
     @goal.completed = !@goal.completed
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to goals_path }
+        format.html { redirect_to user_goals_path(current_user) }
         format.json { render :show, status: :ok, location: @goal }
       else
         # show some error message

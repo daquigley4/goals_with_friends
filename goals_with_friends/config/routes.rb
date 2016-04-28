@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   match 'goals/:id/toggle_completed', to: 'goals#toggle_completed', via: 'get'
 
   # resources :tasks
-  match 'tasks/:id/toggle_completed', to: 'tasks#toggle_completed', via: 'get'
+  match 'goals/:goal_id/tasks/:id/toggle_completed_task', to: 'tasks#toggle_completed_task', via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
