@@ -28,10 +28,11 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+    @goal = Goal.find(params[:goal_id])
     @task = Task.new(task_params)
     # @task.user = current_user
     # @goal = Goal.find(params[:id])
-    @task.goal = Goal.find(params[:goal_id])   # associate the new task to the current_goal
+    @task.goal = @goal   # associate the new task to the current_goal
 
     respond_to do |format|
       if @task.save

@@ -36,3 +36,35 @@ main {
     text-align:center
   }
 }
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              #fff !default;
+$btn-default-bg:                 $navbar-default-bg !default;
+$btn-default-border:             hsla(0, 100%, 100%, 0) !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             hsla(0, 100%, 100%, 0) !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             hsla(0, 100%, 100%, 0) !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                hsla(0, 100%, 100%, 0) !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             hsla(0, 100%, 100%, 0) !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              hsla(0, 100%, 100%, 0) !default;
+
+$btn-link-disabled-color:        $gray-light !default;
