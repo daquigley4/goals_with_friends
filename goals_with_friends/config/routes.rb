@@ -5,14 +5,21 @@ Rails.application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  resources :users
+  resources :users, shallow: false do
+    resources :goals, shallow: false do
+      resources :tasks
+    end
+  end
+
+
+  # resources :users
   root to: 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
 
-  resources :goals
+  # resources :goals
   match 'goals/:id/toggle_completed', to: 'goals#toggle_completed', via: 'get'
 
-  resources :tasks
+  # resources :tasks
   match 'tasks/:id/toggle_completed', to: 'tasks#toggle_completed', via: 'get'
 
 

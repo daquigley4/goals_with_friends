@@ -1,9 +1,9 @@
 <div class="page-header">
-  <%= link_to tasks_path, class: 'btn btn-default' do %>
+  <%= link_to user_goal_path(current_user, @task.goal), class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to @task, class: 'btn btn-primary' do %>
+  <%= link_to user_goal_task_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-info-sign"></span>
     Show
   <% end %>

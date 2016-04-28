@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to new_goal_path, class: 'btn btn-primary' do %>
+  <%= link_to new_user_goal_path(current_user), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Goal
   <% end %>
@@ -36,9 +36,9 @@
             <td><%= goal.due_date %></td>
             <!-- <td><%= goal.completed %></td> -->
 
-            <td><%= link_to 'Show', goal %></td>
-        <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-        <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', user_goal_path(current_user, goal) %></td>
+            <td><%= link_to 'Edit', edit_user_goal_path(current_user, goal) %></td>
+            <td><%= link_to 'Destroy', user_goal_path(current_user, goal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>

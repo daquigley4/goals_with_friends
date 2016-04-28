@@ -1,9 +1,9 @@
 <div class="page-header">
-  <%= link_to goals_path, class: 'btn btn-default' do %>
+  <%= link_to user_goals_path(current_user), class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_goal_path(@goal), class: 'btn btn-primary' do %>
+  <%= link_to edit_user_goal_path(current_user, @goal), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
@@ -24,3 +24,14 @@
   <dd><%= @goal.created_at %></dd>
 
 </dl>
+<!-- (goal: @goal.id) -->
+<h3>Tasks <%= link_to "(+)", new_user_goal_task_path(current_user, @goal) %></h3>
+
+<ol>
+  <% @goal.tasks.each do |task| %>
+    <li>
+      <%= link_to "#{task.title} - #{task.description}",user_goal_task_path(current_user, @goal, task) %>
+      </a>
+    </li>
+  <% end %>
+</ol>
