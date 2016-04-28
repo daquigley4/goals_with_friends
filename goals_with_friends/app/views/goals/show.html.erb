@@ -47,9 +47,10 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @tasks) do |task| %>
+    <!--@goal.tasks.each-->
+      <%= content_tag_for(:tr, @task) do |task| %>
             <td>
-              <%= link_to("/tasks/#{task.id}/toggle_completed") do %>
+              <%= link_to("/tasks/#{task.id}/toggle_completed_task") do %>
                 <% if task.completed %>
                   <span class="glyphicon glyphicon-ok"></span>
                 <% else %>
