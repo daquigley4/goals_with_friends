@@ -1,4 +1,7 @@
 class GoalsController < ApplicationController
+
+HELLOOOOO
+
   before_action :signed_in_user
   before_action :set_goal, only: [:toggle_completed, :show, :edit, :update, :destroy]
   before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
