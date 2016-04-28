@@ -31,7 +31,6 @@
 // Buttons ====================================================================
 
 .btn {
-
   font-weight: 300;
 }
 
@@ -79,6 +78,7 @@ body {
 
 .page-header {
   border-bottom-color: $table-border-color;
+  color: #2b78e4;
 }
 
 .dropdown-menu {
@@ -108,7 +108,7 @@ table,
   font-size: 12px;
 
   a:not(.btn) {
-    color: #fff;
+    color: #2b78e4;
     text-decoration: underline;
   }
 
