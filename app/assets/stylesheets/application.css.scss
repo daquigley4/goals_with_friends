@@ -42,6 +42,10 @@ a.table {
  color: black;
 }
 
+nav {
+  font-weight: bold;
+}
+
 h1, h2 {
   font-weight: bold;
   color: #2b78e4;
@@ -70,4 +74,15 @@ dt {
 
 th {
   color: #5cb85c;
+}
+
+#copyright{
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: #2b78e4;
+  background-size: cover;
 }
