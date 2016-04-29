@@ -12,8 +12,8 @@ A simple web application that can help you and your friends keep each other acco
 
 #### Issues:
 
-**Routing:** 
-I built my application using three nested models.  The routes got complicated because they needed a number of parameters at times.  I had to troubleshoot through a lot of routing error messages.  
+**Routing:**
+I built my application using three nested models.  The routes got complicated because they needed a number of parameters at times.  I had to troubleshoot through a lot of routing error messages.
 
 
 **Pushing to Heroku:**
@@ -29,7 +29,10 @@ I ran into an issue pushing to Heroku because I created my git repository in a p
 -Project Management: Trello
 
 #### Project Links:
+
 [MVP Wireframe](https://trello.com/c/8QUNW0Df/11-mvp-wireframe)
+
+[Trello: User Stories](https://trello.com/b/nUhoiFKy/goals-with-friends-dev)
 
 [GitHub: Goals with Friends - repository](http://daquigley4.github.io/goals_with_friends/)
 
@@ -43,5 +46,5 @@ I ran into an issue pushing to Heroku because I created my git repository in a p
 
 -Add Goal types to give different ways to track goals
 
-###Coming together is a beginning; keeping together is progress; working together is success. 
+###Coming together is a beginning; keeping together is progress; working together is success.
 ###-Henry Ford
