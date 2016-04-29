@@ -20,7 +20,7 @@ I built my application using three nested models.  The routes got complicated be
 I ran into an issue pushing to Heroku because I created my git repository in a parent directory.  Heroku was not able to recognize my app until I moved all the files into the parent directory.
 
 #### Technologies Used:
--Languages: HTML5, CSS3, Ruby, Ruby on Rails, Bootstrap, SASS, Active Record, Heroku
+-HTML5, CSS3, Ruby, Ruby on Rails, Bootstrap, SASS, Active Record, Heroku
 
 -Design: wireframe(balsamiq)
 
